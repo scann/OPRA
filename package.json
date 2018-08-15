@@ -21,7 +21,6 @@
         "@babel/plugin-proposal-decorators": "~7.0.0-rc.1",
         "@babel/plugin-proposal-function-bind": "~7.0.0-rc.1",
         "@babel/plugin-proposal-object-rest-spread": "~7.0.0-rc.1",
-        "@babel/polyfill": "~7.0.0-rc.1",
         "@babel/preset-env": "~7.0.0-rc.1",
         "@babel/preset-react": "~7.0.0-rc.1",
         "@babel/register": "~7.0.0-rc.1",
@@ -80,8 +79,11 @@
         "webpack": "4.16.5",
         "webpack-bundle-analyzer": "~2.13.1",
         "webpack-cli": "~3.1.0",
+        "core-js": "~2.5.7",
         "webpack-dev-server": "~3.1.5",
         "webpack-merge": "~4.1.4",
+        "@babel/polyfill": "~7.0.0-rc.1",
         "webpack-stylish": "~0.1.8"
-    }
+    },
+    "peerDependencies": {}
 }
