@@ -35,13 +35,13 @@ export default class App extends Component {
     render () {
         const { counter1, counter2, counter3 } = this.state;
 
-        // console.time('• selectItems selector •');
-        // const items = selectItems(this.state);
-        // console.timeEnd('• selectItems selector •');
+        console.time('• selectItems selector •');
+        const items = selectItems(this.state);
+        console.timeEnd('• selectItems selector •');
 
-        console.time('• selectItemsMemoized selector •');
-        const items = selectItemsMemoized(this.state);
-        console.timeEnd('• selectItemsMemoized selector •');
+        // console.time('• selectItemsMemoized selector •');
+        // const items = selectItemsMemoized(this.state);
+        // console.timeEnd('• selectItemsMemoized selector •');
 
         return (
             <section>

@@ -25,13 +25,13 @@ export default class Counter extends Component {
         log('render method is called: Counter', '00ff11');
 
         return (
-            <section>
+            <>
                 <h1>Counter</h1>
                 <h3>Count: {this.props.counter}</h3>
                 <button onClick = { this._fakeIncrement }>Fake increment</button>
                 <button onClick = { this._increment }>Increment</button>
                 <button onClick = { this._decrement }>Decrement</button>
-            </section>
+            </>
         );
     }
 }

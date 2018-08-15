@@ -34,18 +34,20 @@ export const selectPostsByGender = createSelector(
     },
 );
 
-export const makeSelectPostsByGender = () => createSelector(
-    [
-        extractPosts,
-        extractTargetGenderFromProps,
-        extractInstancNameFromProps
-    ],
-    (posts, gender, instance) => {
-        log(
-            `makeSelectPostsByGender selector of '${instance}' computed`,
-            '9f49fe',
-        );
+export const makeSelectPostsByGender = () => {
+    return createSelector(
+        [
+            extractPosts,
+            extractTargetGenderFromProps,
+            extractInstancNameFromProps
+        ],
+        (posts, gender, instance) => {
+            log(
+                `makeSelectPostsByGender selector of '${instance}' computed`,
+                '9f49fe',
+            );
 
-        return filterPostsByGender(posts, gender);
-    },
-);
+            return filterPostsByGender(posts, gender);
+        },
+    );
+}

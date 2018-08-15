@@ -32,10 +32,10 @@ export default class Users extends Component {
         ));
 
         return (
-            <section>
+            <>
                 <h1>Users</h1>
                 <ul>{list}</ul>
-            </section>
+            </>
         );
     }
 }

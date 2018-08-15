@@ -1,14 +1,10 @@
 // Core
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 // Instruments
 import { log } from 'helpers';
-import {
-    selectPostsByGender,
-    makeSelectPostsByGender
-} from '../selectors/posts';
+import { selectPostsByGender, makeSelectPostsByGender } from '../selectors/posts';
 import * as postsActions from '../../../core/actions/posts';
 
 const mapStateToProps = (state, props) => {
@@ -29,18 +25,12 @@ const mapStateToProps = (state, props) => {
 //     const selectPostsByGender = makeSelectPostsByGender();
 
 //     return (state, props) => {
+//         // mapStateToProps
+//         log('MSTP is called: Posts', '9f49fe');
 
-//         console.time(
-//             `selectPostsByGender selector ${
-//                 props.instance ? `for the ${props.instance} instance` : ''
-//             }`,
-//         );
+//         console.time(`selectPostsByGender selector ${props.instance ? `for the ${props.instance} instance` : ''}`);
 //         const posts = selectPostsByGender(state, props);
-//         console.timeEnd(
-//             `selectPostsByGender selector ${
-//                 props.instance ? `for the ${props.instance} instance` : ''
-//             }`,
-//         );
+//         console.timeEnd(`selectPostsByGender selector ${props.instance ? `for the ${props.instance} instance` : ''}`);
 
 //         return { posts };
 //     };
@@ -48,7 +38,7 @@ const mapStateToProps = (state, props) => {
 
 @connect(
     mapStateToProps,
-    postsActions,
+    postsActions
 )
 export default class Posts extends PureComponent {
     _createPost = () => this.props.createPost();
@@ -59,9 +49,7 @@ export default class Posts extends PureComponent {
 
         const list = posts.map(({ id, author, comment }) => (
             <li key = { id }>
-                <button onClick = { () => this.props.deletePost(id) }>
-                    Delete
-                </button>
+                <button onClick = { () => this.props.deletePost(id) }>Delete</button>
                 Comment by <b>{author.name}</b>: {comment}
             </li>
         ));

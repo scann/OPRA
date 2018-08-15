@@ -37,13 +37,13 @@ export default class App extends Component {
         log('render method is called: App', 'afd947');
 
         return (
-            <section>
+            <>
                 <Counter />
                 {/* <Users /> */}
                 {/* <Posts byGenderOf = 'males' instance = 'males' /> */}
                 {/* <Posts byGenderOf = 'males' instance = 'males' /> */}
                 {/* <Posts byGenderOf = 'females' instance = 'females' /> */}
-            </section>
+            </>
         );
     }
 }

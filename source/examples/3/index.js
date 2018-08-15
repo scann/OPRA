@@ -16,7 +16,6 @@ const selectCount = createSelector(getCounter, (count) => {
 // Computation
 console.time('Selector computes');
 const computedCounter1 = selectCount(appState);
-
 console.timeEnd('Selector computes');
 
 // Memoization
