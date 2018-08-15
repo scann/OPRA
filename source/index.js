@@ -3,4 +3,4 @@ import '@babel/polyfill';
 
 // Instruments
 import './theme/init';
-import './examples/9';
+import './examples/1';
