@@ -2,18 +2,18 @@
 import { createSelector } from 'reselect';
 
 // Instruments
-import appState from '../../core/appState';
-import { log } from 'helpers';
+import appState from '../core/appState';
+import { log } from '../helpers';
 
 const getPosts = (state) => state.posts;
 
-const selectJanePosts = createSelector(getPosts, (posts) =>
-    posts.filter((post) => {
-        log(`• the result function was recomputed •`, 'aefd3e');
+const selectJanePosts = createSelector(getPosts, (posts) => {
+    log('• the result function was recomputed •', 'aefd3e');
 
+    return posts.filter((post) => {
         return post.author.name === 'Jane';
-    }),
-);
+    });
+});
 
 // Computation
 console.time('Selector computes');

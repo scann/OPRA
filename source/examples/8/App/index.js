@@ -32,7 +32,7 @@ export default class App extends Component {
         }));
     };
 
-    render () {
+    render() {
         const { counter1, counter2, counter3 } = this.state;
 
         console.time('• selectItems selector •');

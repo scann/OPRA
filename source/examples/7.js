@@ -2,18 +2,18 @@
 import { createSelector } from 'reselect';
 
 // Instruments
-import appState from '../../core/appState';
-import { log } from 'helpers';
+import appState from '../core/appState';
+import { log } from '../helpers';
 
 const getPosts = (state) => state.posts;
 
-const selectJanePosts = createSelector(getPosts, (posts) =>
-    posts.filter((post) => {
-        log(`• the result function was recomputed •`, 'aefd3e');
+const selectJanePosts = createSelector(getPosts, (posts) => {
+    return posts.filter((post) => {
+        log('• the result function was recomputed •', 'aefd3e');
 
         return post.author.name === 'Jane';
-    }),
-);
+    });
+});
 
 // Computation
 console.time('Selector computes');
@@ -40,7 +40,7 @@ const newState = Object.assign({}, appState, {
             id:      '012',
             comment: 'Good evening!',
             author:  { id: '321', name: 'Jane', age: 28 },
-        }
+        },
     ],
 });
 

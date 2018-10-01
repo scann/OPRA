@@ -1,11 +1,11 @@
 // Core
 import { createSelector } from 'reselect';
 
-// Instruemnts
-import { log } from 'helpers';
+// Instruments
+import { log } from '../../../helpers';
 
-const getPrefix = (users) =>
-    users.map(({ name, gender, id }) => {
+const getPrefix = (users) => {
+    return users.map(({ name, gender, id }) => {
         switch (gender) {
             case 'female':
                 return { id, fullname: `Miss ${name}` };
@@ -21,6 +21,7 @@ const getPrefix = (users) =>
                 };
         }
     });
+};
 
 // Plain JavaScript selector
 export const selectUsers = (state) => {

@@ -23,7 +23,7 @@ import Users from '../Users';
  * - Если все ЗНАЧЕНИЯ НЕ ИЗМЕНИЛИСЬ, компонент connect() останавливается, препятствуя запуску механизма reconciliation React.
  */
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     log('MSTP is called: App', 'afd947');
 
     return {
@@ -33,16 +33,15 @@ const mapStateToProps = (state) => {
 
 @connect(mapStateToProps)
 export default class App extends Component {
-    render () {
+    render() {
         log('render method is called: App', 'afd947');
 
         return (
             <>
                 <Counter />
                 {/* <Users /> */}
-                {/* <Posts byGenderOf = 'males' instance = 'males' /> */}
-                {/* <Posts byGenderOf = 'males' instance = 'males' /> */}
-                {/* <Posts byGenderOf = 'females' instance = 'females' /> */}
+                {/* <Posts byGenderOf="males" /> */}
+                {/* <Posts byGenderOf="females" /> */}
             </>
         );
     }

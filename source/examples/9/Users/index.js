@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { log } from 'helpers';
 import { selectUsers, selectUsersMemoized } from '../selectors/users';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     log('MSTP is called: Users', '38dddd');
 
     console.time('• selectUsers selector •');
@@ -22,13 +22,13 @@ const mapStateToProps = (state) => {
 
 @connect(mapStateToProps)
 export default class Users extends Component {
-    render () {
+    render() {
         const { users } = this.props;
 
         log('render method is called: Users', '38dddd');
 
         const list = users.map(({ id, fullname }) => (
-            <li key = { id }>{fullname}</li>
+            <li key={id}>{fullname}</li>
         ));
 
         return (

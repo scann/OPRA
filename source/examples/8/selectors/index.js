@@ -4,8 +4,7 @@ import { createSelector } from 'reselect';
 // Instruments
 import { log } from 'helpers';
 
-const generateArray = (parameter1, parameter2) =>
-    Array.from(Array(parameter1 * parameter2).keys());
+const generateArray = (parameter1, parameter2) => Array.from(Array(parameter1 * parameter2).keys());
 
 // Plain JavaScript selector
 export const selectItems = ({ counter1, counter2 }) => {

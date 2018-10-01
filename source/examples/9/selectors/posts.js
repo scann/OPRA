@@ -1,7 +1,7 @@
 // Core
 import { createSelector } from 'reselect';
 
-// Instruemnts
+// Instruments
 import { log } from 'helpers';
 
 const filterPostsByGender = (posts, gender) => {
@@ -20,13 +20,12 @@ const filterPostsByGender = (posts, gender) => {
 // Memoized selector
 const extractPosts = (state) => state.posts;
 const extractTargetGenderFromProps = (_, props) => props.byGenderOf;
-const extractInstancNameFromProps = (_, props) => props.instance;
 
 export const selectPostsByGender = createSelector(
-    [extractPosts, extractTargetGenderFromProps, extractInstancNameFromProps],
-    (posts, gender, instance) => {
+    [ extractPosts, extractTargetGenderFromProps ],
+    (posts, gender) => {
         log(
-            `selectPostsByGender selector of '${instance}' instance computed`,
+            `selectPostsByGender selector of '${gender}' instance computed`,
             '9f49fe',
         );
 
@@ -36,18 +35,14 @@ export const selectPostsByGender = createSelector(
 
 export const makeSelectPostsByGender = () => {
     return createSelector(
-        [
-            extractPosts,
-            extractTargetGenderFromProps,
-            extractInstancNameFromProps
-        ],
-        (posts, gender, instance) => {
+        [ extractPosts, extractTargetGenderFromProps ],
+        (posts, gender) => {
             log(
-                `makeSelectPostsByGender selector of '${instance}' computed`,
+                `makeSelectPostsByGender selector of '${gender}' computed`,
                 '9f49fe',
             );
 
             return filterPostsByGender(posts, gender);
         },
     );
-}
+};
