@@ -4,10 +4,10 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 // Instruments
-import store from '../../core/store';
+import { store } from '../../init/store';
 
 // Containers
-import App from './App';
+import { App } from './App';
 
 render(
     <Provider store = { store }>

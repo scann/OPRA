@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // Instruments
 import { log } from 'helpers';
-import * as counterActions from '../../../core/actions/counter';
+import * as counterActions from '../../bus/counter/actions';
 
 const mapStateToProps = (state) => {
     log('MSTP is called: Counter', '00ff11');
@@ -16,18 +16,20 @@ const mapStateToProps = (state) => {
     mapStateToProps,
     counterActions,
 )
-export default class Counter extends Component {
+export class Counter extends Component {
     _fakeIncrement = () => this.props.fakeIncrement();
     _increment = () => this.props.increment();
     _decrement = () => this.props.decrement();
 
-    render () {
+    render() {
         log('render method is called: Counter', '00ff11');
 
         return (
             <>
                 <h1>Counter</h1>
-                <h3>Count: {this.props.counter}</h3>
+                <h3>
+                    Count: <code>{this.props.counter}</code>
+                </h3>
                 <button onClick = { this._fakeIncrement }>Fake increment</button>
                 <button onClick = { this._increment }>Increment</button>
                 <button onClick = { this._decrement }>Decrement</button>

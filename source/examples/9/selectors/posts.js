@@ -4,13 +4,13 @@ import { createSelector } from 'reselect';
 // Instruments
 import { log } from 'helpers';
 
-const filterPostsByGender = (posts, gender) => {
-    switch (gender) {
-        case 'males':
-            return posts.filter((post) => post.author.gender === 'male');
+const filterPostsByPreference = (posts, like) => {
+    switch (like) {
+        case 'cats':
+            return posts.filter((post) => post.author.likes === 'cats');
 
-        case 'females':
-            return posts.filter((post) => post.author.gender === 'female');
+        case 'dogs':
+            return posts.filter((post) => post.author.likes === 'dogs');
 
         default:
             return posts;
@@ -19,30 +19,24 @@ const filterPostsByGender = (posts, gender) => {
 
 // Memoized selector
 const extractPosts = (state) => state.posts;
-const extractTargetGenderFromProps = (_, props) => props.byGenderOf;
+const extractPreferenceFromProps = (_, props) => props.byLikersOf;
 
-export const selectPostsByGender = createSelector(
-    [ extractPosts, extractTargetGenderFromProps ],
-    (posts, gender) => {
-        log(
-            `selectPostsByGender selector of '${gender}' instance computed`,
-            '9f49fe',
-        );
+export const selectPosts = createSelector(
+    [ extractPosts, extractPreferenceFromProps ],
+    (posts, like) => {
+        log(`selectPosts selector of '${like}' instance computed`, '9f49fe');
 
-        return filterPostsByGender(posts, gender);
+        return filterPostsByPreference(posts, like);
     },
 );
 
-export const makeSelectPostsByGender = () => {
+export const makeSelectPosts = () => {
     return createSelector(
-        [ extractPosts, extractTargetGenderFromProps ],
-        (posts, gender) => {
-            log(
-                `makeSelectPostsByGender selector of '${gender}' computed`,
-                '9f49fe',
-            );
+        [ extractPosts, extractPreferenceFromProps ],
+        (posts, like) => {
+            log(`makeSelectPosts selector of '${like}' computed`, '9f49fe');
 
-            return filterPostsByGender(posts, gender);
+            return filterPostsByPreference(posts, like);
         },
     );
 };

@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 
 // Instruments
-import { selectItems, selectItemsMemoized } from '../selectors';
+import { selectItems } from './selectors';
 
 // Components
-import List from '../List';
+import { List } from './List';
 
-export default class App extends Component {
+export class App extends Component {
     state = {
         counter1: 100,
         counter2: 100,
@@ -35,22 +35,24 @@ export default class App extends Component {
     render() {
         const { counter1, counter2, counter3 } = this.state;
 
-        console.time('• selectItems selector •');
+        console.time('→ selector');
         const items = selectItems(this.state);
-        console.timeEnd('• selectItems selector •');
-
-        // console.time('• selectItemsMemoized selector •');
-        // const items = selectItemsMemoized(this.state);
-        // console.timeEnd('• selectItemsMemoized selector •');
+        console.timeEnd('→ selector');
 
         return (
-            <section>
+            <section className = 'example'>
                 <h1>
-                    Items array length (counter1 * counter2): {items.length}
+                    Items array length: <code>{items.length}</code>
                 </h1>
-                <h2>Counter 1: {counter1} </h2>
-                <h2>Counter 2: {counter2} </h2>
-                <h2>Counter 3: {counter3} </h2>
+                <h3>
+                    Counter 1: <code>{counter1}</code>
+                </h3>
+                <h3>
+                    Counter 2: <code>{counter2}</code>
+                </h3>
+                <h3>
+                    Counter 3: <code>{counter3}</code>
+                </h3>
                 <button onClick = { this.handleIncrement1 }>
                     Increment Counter 1
                 </button>

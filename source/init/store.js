@@ -3,13 +3,13 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 
 // Instruments
-import reducer from '../reducers';
-import persistedState from '../appState';
+import { rootReducer } from './rootReducer';
+import persistedState from './appState';
 import { log } from 'helpers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const logger = createLogger({
+const logger1 = createLogger({
     duration:  true,
     collapsed: true,
     diff:      true,
@@ -30,4 +30,8 @@ const logger2 = ({ getState }) => (next) => (action) => {
     log('• new state •', 'fffdde', getState());
 };
 
-export default createStore(reducer, persistedState, composeEnhancers(applyMiddleware(logger)));
+export const store = createStore(
+    rootReducer,
+    persistedState,
+    composeEnhancers(applyMiddleware(logger1)),
+);

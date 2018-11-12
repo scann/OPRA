@@ -1,9 +1,9 @@
-// Instruments
-import { FAKE_INCREMENT, INCREMENT, DECREMENT } from '../../actions/counter/types';
+// Types
+import { FAKE_INCREMENT, INCREMENT, DECREMENT } from './types';
 
 const initialState = 0;
 
-export default (state = initialState, { type, payload }) => {
+export const counterReducer = (state = initialState, { type }) => {
     switch (type) {
         case FAKE_INCREMENT:
             return state;

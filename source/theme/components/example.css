@@ -1,0 +1,64 @@
+.example {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15px;
+    min-height: 100vh;
+    background-color: #16161a;
+    color: wheat;
+
+    & button {
+        color: wheat;
+        border: 2px solid currentColor;
+        border-radius: 7px;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        transition: color 0.3s ease;
+        font-size: 21px;
+        padding: 7px 20px;
+        margin-bottom: 15px;
+
+        &:hover {
+            color: cornflowerblue;
+        }
+
+        &:disabled {
+            color: gray;
+            cursor: wait;
+        }
+    }
+
+    & ul {
+        width: 600px;
+        padding: 0;
+
+        & li {
+            cursor: pointer;
+            transition: color 0.3s ease;
+            user-select: none;
+            list-style: none;
+
+            &:not(:last-child) {
+                margin-bottom: 7px;
+            }
+
+            &:hover {
+                color: cornflowerblue;
+            }
+
+            & button {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    & div {
+        & button {
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+        }
+    }
+}
