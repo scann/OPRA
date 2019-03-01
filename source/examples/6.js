@@ -5,7 +5,9 @@ import { createSelector } from 'reselect';
 import appState from '../init/appState';
 import { log } from 'helpers';
 
+//newState !== appState
 const getPosts = (state) => state.posts;
+//newState.posts === appState.posts
 
 const selectJanePosts = createSelector(
     getPosts,
@@ -34,6 +36,8 @@ console.log('→ janePosts1', janePosts1);
 console.log('→ janePosts2', janePosts2);
 
 const newState = { ...appState };
+//newState !== appState
+//newState.posts === appState.posts
 
 log('• −−−− !! Mutation !! −−−− •', '1aa395');
 

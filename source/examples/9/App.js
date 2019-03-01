@@ -40,8 +40,8 @@ export class App extends Component {
             <section className = 'example'>
                 <Counter />
                 {/* <Users /> */}
-                {/* <Posts byLikersOf = 'cats' /> */}
-                {/* <Posts byLikersOf = 'dogs' /> */}
+                { <Posts byLikersOf = 'cats' /> }
+                { <Posts byLikersOf = 'dogs' /> }
             </section>
         );
     }

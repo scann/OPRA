@@ -8,7 +8,7 @@ import { selectPosts, makeSelectPosts } from './selectors/posts';
 
 import * as postsActions from '../../bus/posts/actions';
 
-const mapStateToProps = (state, props) => {
+/*const mapStateToProps = (state, props) => {
     log('MSTP is called: Posts', '9f49fe');
 
     console.time(`selectPosts selector for '${props.byLikersOf}' instance`);
@@ -17,26 +17,26 @@ const mapStateToProps = (state, props) => {
 
     return { posts };
 };
+*/
+const makeMapStateToProps = () => {
+    const factorySelectPosts = makeSelectPosts();
 
-// const makeMapStateToProps = () => {
-//     const factorySelectPosts = makeSelectPosts();
+    /* ↓ mapStateToProps ↓ */
+    return (state, props) => {
+        log('MSTP is called: Posts', '9f49fe');
 
-//     /* ↓ mapStateToProps ↓ */
-//     return (state, props) => {
-//         log('MSTP is called: Posts', '9f49fe');
+        console.time(`selectPosts selector for '${props.byLikersOf}' instance`);
+        const posts = factorySelectPosts(state, props);
+        console.timeEnd(
+            `selectPosts selector for '${props.byLikersOf}' instance`,
+        );
 
-//         console.time(`selectPosts selector for '${props.byLikersOf}' instance`);
-//         const posts = factorySelectPosts(state, props);
-//         console.timeEnd(
-//             `selectPosts selector for '${props.byLikersOf}' instance`,
-//         );
-
-//         return { posts };
-//     };
-// };
+        return { posts };
+    };
+};
 
 @connect(
-    mapStateToProps,
+    makeMapStateToProps,
     postsActions,
 )
 export class Posts extends PureComponent {

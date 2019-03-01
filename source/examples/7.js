@@ -35,6 +35,7 @@ console.log('→ janePosts2', janePosts2);
 
 log('• −−−−−−−− •', '1aa395');
 
+//Create a new state copy every time instead!
 const newState = {
     ...appState,
     posts: [

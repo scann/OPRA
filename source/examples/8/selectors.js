@@ -37,6 +37,6 @@ const selectItemsMemoized = createSelector(
 );
 
 export {
-    selectItemsSimple as selectItems,
-    // selectItemsMemoized as selectItems,
+    //selectItemsSimple as selectItems,
+    selectItemsMemoized as selectItems,
 };

@@ -48,6 +48,6 @@ const selectUsersMemoized = createSelector(
 );
 
 export {
-    selectUsersSimple as selectUsers,
-    // selectUsersMemoized as selectUsers,
+    //selectUsersSimple as selectUsers,
+    selectUsersMemoized as selectUsers,
 };
